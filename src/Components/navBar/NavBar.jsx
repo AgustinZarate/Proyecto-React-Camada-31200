@@ -1,6 +1,7 @@
 import React from 'react'
 import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'react-bootstrap';
 import { NavbarToggler } from 'reactstrap';
+import CartWidget from './cartWidget/CartWidget';
 
 
 const NavBar = () => {
@@ -22,7 +23,7 @@ const NavBar = () => {
                 </NavLink>
             </Nav>
         
-        {/* <NavbarToggler onClick={function noRefCheck(){}} /> */}
+            <CartWidget/>
     </Navbar>
 </>
     )
