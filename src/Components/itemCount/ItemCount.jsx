@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './itemCount.css';
 
-export const ItemCount = () => {
+export const ItemCount = ({stock}) => {
 
     const productos = [
         {
@@ -24,7 +24,7 @@ export const ItemCount = () => {
         },
       ];
     
-      const [count, setCount] = useState(0);
+      const [count, setCount] = useState(1);
     
       function sumar() {
         if (count < productos[0].stock) {
@@ -49,13 +49,9 @@ export const ItemCount = () => {
               +
             </button>
           </div>
-          {count > 0 ? (
-            <button className="onAdd"> Agregar al carrito</button>
-          ) : (
-            <button disabled className="onAdddisabled">
-              {' '}
-              Agregar al carrito{' '}
-            </button>
+          {count > 0 
+          ? (<button className="onAdd"> Agregar al carrito</button>) 
+          : (<button disabled className="onAdddisabled">{' '}Agregar al carrito{' '}</button>
           )}
           {/*       <p>{productos.map((prod) => prod.stock)}</p> */}
         </div>

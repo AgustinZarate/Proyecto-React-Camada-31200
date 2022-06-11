@@ -4,51 +4,40 @@ import ItemList from '../Components/itemList/ItemList'
 import {productos} from '../data/data.js'
 
 
-function ItemListContainer({mensaje}) {
+function ItemListContainer({}) {
+  const [listaProductos, setListaProductos] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   let condition = true;
 
-  const [listaProductos, setListaProductos] = useState([]);
-
-  useEffect(() => {
-    /* EJECUTAR UNA PROMESA PARA SOLICITAR DATOS A API */
-    const pedirDatos = new Promise((resolve, reject) => {
-
-      if(condition) {
+  const pedirDatos = (res) => {
+    return new Promise((resolve, reject) => {
+      if(res) {
         setTimeout(()=>{
-          resolve(productos)
-          /* LA FUNCION setListaProductos NO SE EJECUTA DENTRO DEL .then PERO SI LO HACE EN LA PROMESA */
-          setListaProductos(productos); 
-        }, 3000)
-      }else{
+          resolve(productos)             /* La funcion pedirDatos es una PROMESA que espera una respuesta */
+        }, 3000)                        /* si la respuesta es favorable se almacena en la propiedad RESOLVE  */
+      }else{                             /* si es denegada se almacena en la propiedad REJECT */
         setTimeout(()=>{
           reject('404')
         }, 2000)
       }
     })
+  }
 
-      /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
-      /* SI ES EXITOSA .then */
-
-      /*.then((res) => {
-        (res) => {
-          setListaProductos(res);
-        };
-      }) */
-      /* SI ES FALLA .catch */
-      .catch((error)=> console.log(error))
-      .finally(()=>setLoading(false))
+  useEffect(() => {
+    /* EJECUTAR UNA PROMESA PARA SOLICITAR DATOS A API */
+    pedirDatos(condition)
+      .then((res) => {setListaProductos(res);})           /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
+      .catch((error)=> alert(error))                /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
+      .finally(()=>setLoading(false))                     /* SI ES FALLA .catch */
   }, []);
 
 
-
-  const [loading, setLoading] = useState(true)
   
   return (
     <>
-      {/* <h2 style={{color: "red" }} >{mensaje}</h2> */}
       <div className='text-center'>
-        {loading ? <p>Cargando..</p> : <ItemList listaProductos={listaProductos}/>}
+        {loading ? <p>Cargando..</p> : <ItemList listaProductos={listaProductos} />}
       </div>
     </>
   )
