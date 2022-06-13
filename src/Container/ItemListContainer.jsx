@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ItemCount } from '../Components/itemCount/ItemCount'
 import ItemList from '../Components/itemList/ItemList'
 import {productos} from '../data/data.js'
+import './itemListContainer.css'
 
 
 function ItemListContainer({}) {
@@ -36,7 +37,7 @@ function ItemListContainer({}) {
   
   return (
     <>
-      <div className='text-center'>
+      <div className='itemList'>
         {loading ? <p>Cargando..</p> : <ItemList listaProductos={listaProductos} />}
       </div>
     </>

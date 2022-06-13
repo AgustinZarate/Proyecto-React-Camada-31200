@@ -5,21 +5,17 @@ import { Card,CardBody,CardTitle,CardSubtitle,CardText,Button,CardImg } from 're
 const Item = ({producto}) => {
   return (
     <>
-      <div className='col-md-4'>
-            <Card>
-              <CardBody>
-                <CardImg alt="Card image cap" src={producto.img} top width="100%" className='img-product'/>
-                <CardTitle tag="h5" className='m-3'>
-                  {producto.nombre}
-                </CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  {producto.categoria}
-                </CardSubtitle>
-                <Button>
-                  Ver Mas
-                </Button>
-              </CardBody>
-            </Card>
+      <div className='item col-md-4'>
+            <div className="card m-2">
+              <div className="circle"></div>
+              <div className="content">
+                <h2>{producto.nombre}</h2>
+                <p>{producto.categoria}</p>
+                <p>{producto.precio}</p>
+                <a href="">View More</a>
+              </div>
+                <img className='img-product' src={producto.img} alt=""/>
+              </div>
       </div>
     </>
   )
