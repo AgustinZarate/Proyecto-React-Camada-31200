@@ -1,33 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './itemCount.css';
 
-export const ItemCount = ({stock}) => {
-
-    const productos = [
-        {
-          id: 1,
-          nombre: 'remera',
-          precio: 100,
-          stock: 15,
-        },
-        {
-          id: 2,
-          nombre: 'buzo',
-          precio: 250,
-          stock: 10,
-        },
-        {
-          id: 3,
-          nombre: 'chaleco',
-          precio: 500,
-          stock: 5,
-        },
-      ];
-    
+export const ItemCount = ({producto}) => {
       const [count, setCount] = useState(1);
     
       function sumar() {
-        if (count < productos[0].stock) {
+        if (count < producto.stock) {
           setCount(count + 1);
         }
       }
@@ -39,21 +17,26 @@ export const ItemCount = ({stock}) => {
       }
     
       return (
-        <div className="containerContador">
-          <div className="contador">
-            <button onClick={restar} className="obj restar">
-              -
-            </button>
-            <p className="obj">{count}</p>
-            <button onClick={sumar} className="obj sumar">
-              +
-            </button>
+        <>
+          <div className="containerContador">
+            <div className="contador">
+              <button onClick={restar} className="obj restar">
+                -
+              </button>
+              <p className="obj number">{count}</p>
+              <button onClick={sumar} className="obj sumar">
+                +
+              </button>
+            </div>
           </div>
-          {count > 0 
-          ? (<button className="onAdd"> Agregar al carrito</button>) 
-          : (<button disabled className="onAdddisabled">{' '}Agregar al carrito{' '}</button>
-          )}
-          {/*       <p>{productos.map((prod) => prod.stock)}</p> */}
-        </div>
+          <div>
+            {count > 0 
+              ? (<button className="onAdd"> Agregar al carrito</button>) 
+              : (<button disabled className="onAdddisabled">{' '}Agregar al carrito{' '}</button>)}
+          </div>
+        </>
       );
     }
+
+
+    export default ItemCount

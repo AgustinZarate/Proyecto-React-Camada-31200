@@ -1,23 +1,26 @@
 .containerContador {
-    width: 250px;
-    margin: 100px auto;
-  }
+  width: 150px;
+}
   
   .contador {
+    padding: 0.5rem;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
     border-radius: 15px;
   }
   
   .obj {
     font-size: 2rem;
-    margin: 1rem;
-    padding: 0.5re;
+    padding: 0.5rem;
     border-radius: 8px;
+  } 
+  .number {
+    font-size: 2rem !important;
+    margin: -5px 0px;
   }
   
   .sumar {
+    max-height: 3rem;
     /*   color: white;
     background-color: rgb(52, 52, 219); */
     border: none;
@@ -39,6 +42,7 @@
   }
   
   .restar {
+    max-height: 3rem;
     /*   color: white;
     background-color: rgb(233, 42, 42); */
     border: none;
