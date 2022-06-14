@@ -11,7 +11,7 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     /* EJECUTAR UNA PROMESA PARA SOLICITAR DATOS A API */
     pedirDatos(condition)
-      .then((res) => {setProducto(res[0]);})               /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
+      .then((res) => {setProducto(res[3]);})               /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
       .catch((error)=> alert(error))                      /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
       .finally(()=>setLoading(false))                     /* SI ES FALLA .catch */
   }, []);

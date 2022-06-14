@@ -17,17 +17,23 @@ export const ItemDetail = ({producto}) => {
 
           {producto.categoria === "PS4 - PS5" ? 
           <div className="container-img-detail play-station">
-          <img src={producto.img_descripsion} className='img-detail' alt="" />
+          <img src={producto.logo} className='img-detail' alt="" />
           <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
-          : 
+          : producto.categoria === "XBOX" ?
           
           <div className="container-img-detail xbox">
-            <img src={producto.img_descripsion} className='img-detail' alt="" />
+            <img src={producto.logo} className='img-detail' alt="" />
             <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
+          :
+
+          <div className="container-img-detail nintendo">
+            <img src={producto.logo} className='img-detail' alt="" />
+            <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           }
 
           <div className="details">
