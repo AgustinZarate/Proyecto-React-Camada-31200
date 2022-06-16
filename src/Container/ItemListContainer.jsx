@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { ItemCount } from '../Components/itemCount/ItemCount'
 import ItemList from '../Components/itemList/ItemList'
 import { pedirDatos } from '../helpers/pedirDatos'
@@ -11,13 +12,22 @@ function ItemListContainer({}) {
 
   let condition = true;
 
+  const {catId} = useParams()
+  console.log(catId)
+
   useEffect(() => {
-    /* EJECUTAR UNA PROMESA PARA SOLICITAR DATOS A API */
-    pedirDatos(condition)
+    if(catId){
+      pedirDatos(condition)
+      .then((res) => {setListaProductos(res.filter(prod => prod.categoria === catId));})           /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
+      .catch((error)=> alert(error))                      /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
+      .finally(()=>setLoading(false))  
+    }else{
+      pedirDatos(condition)
       .then((res) => {setListaProductos(res);})           /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
       .catch((error)=> alert(error))                      /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
-      .finally(()=>setLoading(false))                     /* SI ES FALLA .catch */
-  }, []);
+      .finally(()=>setLoading(false))  
+    }
+  }, [catId]);
 
 
   

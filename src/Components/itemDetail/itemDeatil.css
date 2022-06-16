@@ -43,7 +43,7 @@
 }
 
 
-
+/* Lograr que el content sea pasado desde el componente */
 .container-detail .container-img-detail::before {
     z-index: 0;
     content: 'Ghost Of Tsushima';
@@ -100,4 +100,38 @@
     padding: 0;
     font-size: 2.5em;
     color: #333;
+}
+
+@media (max-width:1080px) {
+    .container-detail {
+        height: auto;
+    }
+
+    .container-detail .container-img-detail {
+        padding: 40px;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* .img-detail {
+        display: none;
+    } */
+
+    .container-detail .container-img-detail .trailer {
+        top: 1 !important;
+    }
+    
+    .details {
+        width: 100% !important;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container-detail .details p {
+        max-width: 100%;
+        margin-left: 0;
+    }
 }

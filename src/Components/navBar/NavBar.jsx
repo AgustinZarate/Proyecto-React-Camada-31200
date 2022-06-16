@@ -1,7 +1,8 @@
 import React from 'react'
-import { Collapse, Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'react-bootstrap';
+import { Collapse, Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 import { NavbarToggler } from 'reactstrap';
-import CartWidget from './cartWidget/CartWidget';
+import CartWidget from '../cartWidget/CartWidget';
 
 
 const NavBar = () => {
@@ -12,18 +13,23 @@ const NavBar = () => {
                 <h1>Tienda Virutal</h1>
             </NavbarBrand>
             <Nav>
-                <NavLink href='#'>
+                <NavLink className='btn btn-outline-primary m-2' to='/'>
                     Home
                 </NavLink>
-                <NavLink href='#'>
-                    Productos
+                <NavLink className='btn btn-outline-primary m-2' to='/categoria/PS4'>
+                    Play Station 4
                 </NavLink>
-                <NavLink href='#'>
-                    Contacto
+                <NavLink className='btn btn-outline-primary m-2' to='/categoria/XBOX'>
+                    Xbox
+                </NavLink>
+                <NavLink className='btn btn-outline-primary m-2' to='/categoria/Nintendo'>
+                    Nintendo
                 </NavLink>
             </Nav>
         
-            <CartWidget/>
+            <Link to='/cart'>
+                <CartWidget />
+            </Link>
     </Navbar>
 </>
     )

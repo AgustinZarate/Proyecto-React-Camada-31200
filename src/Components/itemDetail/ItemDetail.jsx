@@ -15,7 +15,7 @@ export const ItemDetail = ({producto}) => {
     <div className="item-detail">
         <div className="container-detail">
 
-          {producto.categoria === "PS4 - PS5" ? 
+          {producto.categoria === "PS4" ? 
           <div className="container-img-detail play-station">
           <img src={producto.logo} className='img-detail' alt="" />
           <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
