@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from '../Components/itemDetail/ItemDetail';
+import Spinner from '../Components/spiner/Spinner';
 import { pedirDatos } from '../helpers/pedirDatos';
 
 export const ItemDetailContainer = () => {
@@ -21,7 +22,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-        {loading ? <p>Cargando..</p> : <ItemDetail producto={producto} />}
+        {loading ? <Spinner /> : <ItemDetail producto={producto} />}
     </>
   )
 }

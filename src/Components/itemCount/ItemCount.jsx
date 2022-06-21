@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { ondAddActive } from '../../helpers/onAddActive';
+import { Image } from 'react-bootstrap';
 import './itemCount.css';
 
 export const ItemCount = ({producto}) => {
+
+    
       const [count, setCount] = useState(1);
     
       function sumar() {
@@ -31,9 +35,25 @@ export const ItemCount = ({producto}) => {
           </div>
           <div>
             {count > 0 
-              ? (<button className="onAdd"> Agregar al carrito</button>) 
+              ? (<button onClick={ondAddActive} className="onAdd"> 
+                  <span className='text'> Agregar al carrito </span>
+                  <i className="icon">
+                  { producto.categoria === "Nintendo" ?
+                    <Image src="../img/check-nintendo.png" />
+                    : producto.categoria === "XBOX" ?
+                    <Image src="../img/check-xbox.png" />
+                    :
+                    <Image src="../img/check-ps4.png" />
+                  }
+                  </i>
+                </button>) 
               : (<button disabled className="onAdddisabled">{' '}Agregar al carrito{' '}</button>)}
           </div>
+          {/* ------ */}
+{/*           <button className="button">
+            <span className="text">Submit</span>
+            <i className="ri-check-line icon"></i>
+          </button> */}
         </>
       );
     }

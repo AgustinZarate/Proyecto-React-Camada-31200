@@ -4,6 +4,11 @@ import ItemCount from '../itemCount/ItemCount.jsx'
 import { useState, useEffect } from 'react'
 
 export const ItemDetail = ({producto}) => {
+
+  const OnAdd =(cant)=>{
+    console.log(cant)
+  }
+
   const [categoria, setCategoria] = useState(undefined)
 
   useEffect(()=>{
@@ -17,21 +22,21 @@ export const ItemDetail = ({producto}) => {
 
           {producto.categoria === "PS4" ? 
           <div className="container-img-detail play-station">
-          <img src={producto.logo} className='img-detail' alt="" />
+          <img src={`/${producto.logo}`} className='img-detail' alt="" />
           <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           : producto.categoria === "XBOX" ?
           
           <div className="container-img-detail xbox">
-            <img src={producto.logo} className='img-detail' alt="" />
+            <img src={`/${producto.logo}`} className='img-detail' alt="" />
             <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           
           :
 
           <div className="container-img-detail nintendo">
-            <img src={producto.logo} className='img-detail' alt="" />
+            <img src={`/${producto.logo}`} className='img-detail' alt="" />
             <iframe className='trailer' width="560" height="315" src={producto.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           }
@@ -41,7 +46,7 @@ export const ItemDetail = ({producto}) => {
             <p>{producto.descripsion}</p>
               <h3>${producto.precio}</h3>
               <h6>Stock Actual: {producto.stock}</h6>
-              <ItemCount producto={producto}/>
+              <ItemCount producto={producto} OnAdd={OnAdd} />
           </div>
         </div>
     </div>

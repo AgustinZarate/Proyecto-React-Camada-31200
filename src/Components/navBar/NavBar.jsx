@@ -1,35 +1,39 @@
 import React from 'react'
-import { Collapse, Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
+import { Collapse, Nav, Navbar, NavbarBrand, NavItem, Container, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import { NavbarToggler } from 'reactstrap';
 import CartWidget from '../cartWidget/CartWidget';
+import './NavBar.css'
 
 
 const NavBar = () => {
     return (
 <>
-    <Navbar color="light" expand="md" light>
-            <NavbarBrand href="/">
-                <h1>Tienda Virutal</h1>
+    <Navbar bg="light" expand="lg">
+        <Container>
+            <NavbarBrand className='brand-container' href="/">
+                <img src="./logo-tienda.png" className='logo' alt="" />
+                <h1>GamerZone</h1>
             </NavbarBrand>
-            <Nav>
-                <NavLink className='btn btn-outline-primary m-2' to='/'>
-                    Home
-                </NavLink>
-                <NavLink className='btn btn-outline-primary m-2' to='/categoria/PS4'>
-                    Play Station 4
-                </NavLink>
-                <NavLink className='btn btn-outline-primary m-2' to='/categoria/XBOX'>
-                    Xbox
-                </NavLink>
-                <NavLink className='btn btn-outline-primary m-2' to='/categoria/Nintendo'>
-                    Nintendo
-                </NavLink>
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+                    <NavLink className='btn btn-outline-primary m-2' to='/'>
+                        Home
+                    </NavLink>
+                    <NavLink className='btn btn-outline-primary m-2' to='/categoria/PS4'>
+                        Play Station 4
+                    </NavLink>
+                    <NavLink className='btn btn-outline-primary m-2' to='/categoria/XBOX'>
+                        Xbox
+                    </NavLink>
+                    <NavLink className='btn btn-outline-primary m-2' to='/categoria/Nintendo'>
+                        Nintendo
+                    </NavLink>
             </Nav>
-        
-            <Link to='/cart'>
+            </Navbar.Collapse>
+        </Container>
+        <Link to='/cart'>
                 <CartWidget />
-            </Link>
+        </Link>
     </Navbar>
 </>
     )

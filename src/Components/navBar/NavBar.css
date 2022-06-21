@@ -1,0 +1,12 @@
+.logo {
+    height: 100px;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.navbar-collapse {
+    flex-grow: 0;
+}

@@ -65,5 +65,40 @@ export const productos = [{
         "descripsion":"Link despierta tras un profundo sueño de 100 años en un misterioso templo en el reino de Hyrule; junto a él, deberemos descubrir su pasado mientras escuchamos una voz que nos incita a enfrentarnos a un malvado ser que provocó el llamado cataclismo: Ganon."
         
     },
-    
+    {
+        "id": 7,
+        "nombre": "God Of War",
+        "precio": 7999,
+        "stock": 5,
+        "categoria": "PS4",
+        "img":"img/portada/god-of-war.webp",
+        "logo":"img/detail/logo-zelda.png",
+        "trailer":"https://www.youtube.com/embed/zw47_q9wbBE",
+        "descripsion":"El videojuego se centra en la historia de la mitología nórdica, a diferencia de los títulos anteriores, que se ubicaban en la Antigua Grecia y su mitología. Con el cambio de cultura, hacen su aparición espacios míticos como el árbol de Yggdrasil y criaturas como la serpiente Jörmungandr."
+        
+    },
+    {
+        "id": 8,
+        "nombre": "Forza Horizon 4",
+        "precio": 7999,
+        "stock": 5,
+        "categoria": "XBOX",
+        "img":"img/portada/forza-horizon-4.jpeg",
+        "logo":"img/detail/logo-zelda.png",
+        "trailer":"https://www.youtube.com/embed/zw47_q9wbBE",
+        "descripsion":"Forza Horizon 4 es un juego de coches que no exige ser fan de los coches, un hecho insólito que refuerza aún más la valía de uno de los mejores videojuegos que nos ha dado la presente generación de consolas. Cualquiera puede disfrutar de su experiencia gamberra y desbordante, de los preciosos lugares que visitaremos, esta vez localizados en Reino Unido."
+        
+    },
+    {
+        "id": 9,
+        "nombre": "Super Smash Bros. Ultimate",
+        "precio": 7999,
+        "stock": 5,
+        "categoria": "Nintendo",
+        "img":"img/portada/super-smash-bros.jpg",
+        "logo":"img/detail/logo-zelda.png",
+        "trailer":"https://www.youtube.com/embed/zw47_q9wbBE",
+        "descripsion":"Super Smash Bros. utiliza un sistema de batalla distinto al de los tradicionales juegos de lucha. 2 o más jugadores (hasta 4) eligen personaje, tras lo cual pelean en diferentes escenarios mientras tratan de sacar a sus oponentes del escenario."
+        
+    },
 ]

@@ -30,15 +30,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #d83133;
+    background: #187115;
     clip-path: circle(100px at center);
     transition: 1.5s;
 }
 
+.card .circle-ps4::before {
+    background: #006dbc;
+}
+
+.card .circle-xbox::before {
+    background: #187115;
+}
+
+.card .circle-nintendo::before {
+    background: #d83133;
+}
+
 .card:hover .circle:before {
     clip-path: circle(400px at center);
+
+}
+
+.card:hover .circle-ps4:before {
     background: #0065c3;
 }
+
 
 .card img {
     border-radius: 0.5rem;

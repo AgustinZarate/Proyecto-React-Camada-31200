@@ -2,13 +2,14 @@ import React from 'react'
 import './item.css'
 import { Card,CardBody,CardTitle,CardSubtitle,CardText,Button,CardImg } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Col, Image } from 'react-bootstrap';
 
-const Item = ({producto}) => {
+const Item = ({producto, clase}) => {
   return (
     <>
-      <div className='item col-md-4'>
-            <div className="card m-2">
-              <div className="circle"></div>
+        <Col className='item' md={4}>
+          <Card className='card m-2'>
+              <div className={`circle ${clase}`}></div>
               <div className="content">
                 <h2>{producto.nombre}</h2>
                 <p>{producto.categoria}</p>
@@ -17,9 +18,9 @@ const Item = ({producto}) => {
                   View More
                 </Link>
               </div>
-                <img className='img-product' src={producto.img} alt=""/>
-              </div>
-      </div>
+              <Image className='img-product' src={`/${producto.img}`} alt={`portada ${producto.nombre}`}/>
+          </Card>
+        </Col>
     </>
   )
 }
