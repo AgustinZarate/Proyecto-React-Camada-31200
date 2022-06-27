@@ -2,12 +2,20 @@ import React from 'react'
 import './itemDeatil.css'
 import ItemCount from '../itemCount/ItemCount.jsx'
 import { useState, useEffect } from 'react'
+import InputCount from '../InputCount/InputCount'
 
 export const ItemDetail = ({producto}) => {
+  const [inputType, setInputType] = useState('button')
+  const [ cant, setCant] = useState(0)
 
   const OnAdd =(cant)=>{
     console.log(cant)
+    setCant(cant)
+    setTimeout(()=>{
+      setInputType('input')
+    }, 1500)  
   }
+
 
   const [categoria, setCategoria] = useState(undefined)
 
@@ -46,7 +54,15 @@ export const ItemDetail = ({producto}) => {
             <p>{producto.descripsion}</p>
               <h3>${producto.precio}</h3>
               <h6>Stock Actual: {producto.stock}</h6>
+
+            {inputType === 'button' ?
               <ItemCount producto={producto} OnAdd={OnAdd} />
+              :
+              <InputCount />
+            }
+
+
+
           </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ import { pedirDatos } from '../helpers/pedirDatos';
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true)
+  
 
   const {itemId} = useParams()
 

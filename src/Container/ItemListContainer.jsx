@@ -26,7 +26,7 @@ function ItemListContainer({}) {
       pedirDatos(condition)
       .then((res) => {setListaProductos(res);})           /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
       .catch((error)=> alert(error))                      /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
-      .finally(()=>setLoading(false))  
+      .finally(()=>setLoading(false))
     }
   }, [catId]);
 
