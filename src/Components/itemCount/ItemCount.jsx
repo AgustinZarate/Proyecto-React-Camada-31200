@@ -7,6 +7,10 @@ export const ItemCount = ({producto, OnAdd}) => {
 
     
       const [count, setCount] = useState(1);
+
+      function capCount(){
+        OnAdd(count);
+        }
     
       function sumar() {
         if (count < producto.stock) {
@@ -35,7 +39,7 @@ export const ItemCount = ({producto, OnAdd}) => {
           </div>
           <div>
             {count > 0 
-              ? (<button onClick={OnAdd} className="onAdd"> 
+              ? (<button onClick={capCount} className="onAdd"> 
                   <span className='text'> Agregar al carrito </span>
                   <i className="icon">
                   { producto.categoria === "Nintendo" ?
