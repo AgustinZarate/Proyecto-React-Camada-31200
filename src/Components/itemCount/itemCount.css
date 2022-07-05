@@ -31,14 +31,14 @@
   .sumar:hover,
   .restar:hover {
     color: white;
-    background-color: rgb(69, 214, 147);
+    background-color: #3b4058;;
     transition: all 0.3s;
   }
   
   .sumar:active,
   .restar:active {
     transform: scale(1.2, 1.2);
-    background-color: rgb(134, 218, 178);
+    background-color: #595c69;;
   }
   
   .restar {

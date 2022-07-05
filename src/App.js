@@ -6,13 +6,13 @@ import ItemListContainer from './Container/ItemListContainer';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { ItemDetailContainer } from './Container/ItemDetailContainer';
 import Cart from './Components/cart/Cart';
-import { CartContext } from './Components/context/CartContex';
 import Footer from './Components/footer/Footer';
+import { CartContextProvider } from './context/CartContext';
 
 
 function App() {
   return (
-/*       <CartContext.Provider> */
+    <CartContextProvider>
         <div className="App container">
           <BrowserRouter>
             <NavBar/>
@@ -26,7 +26,7 @@ function App() {
             <Footer />
           </BrowserRouter>
         </div>
-/*       </CartContext.Provider> */
+    </CartContextProvider>
   );
 }
 

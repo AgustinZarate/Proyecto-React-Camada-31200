@@ -16,16 +16,16 @@ const NavBar = () => {
             </NavbarBrand>
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-                    <NavLink className='btn btn-outline-primary m-2' to='/'>
+                    <NavLink className='btn btn-dark m-2' to='/'>
                         Home
                     </NavLink>
                     <NavLink className='btn btn-outline-primary m-2' to='/categoria/PS4'>
                         Play Station 4
                     </NavLink>
-                    <NavLink className='btn btn-outline-primary m-2' to='/categoria/XBOX'>
+                    <NavLink className='btn btn-outline-success m-2' to='/categoria/XBOX'>
                         Xbox
                     </NavLink>
-                    <NavLink className='btn btn-outline-primary m-2' to='/categoria/Nintendo'>
+                    <NavLink className='btn btn-outline-danger m-2' to='/categoria/Nintendo'>
                         Nintendo
                     </NavLink>
             </Nav>

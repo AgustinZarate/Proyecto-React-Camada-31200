@@ -1,10 +1,13 @@
 import React from 'react'
 import './itemDeatil.css'
 import ItemCount from '../itemCount/ItemCount.jsx'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import InputCount from '../InputCount/InputCount'
+import { CartContext, useCartContext } from "../../context/CartContext"
 
 export const ItemDetail = ({producto}) => {
+  const {cart, addToCart} = useCartContext()
+  
   const [inputType, setInputType] = useState('button')
   const [ cant, setCant] = useState(0)
 
@@ -13,8 +16,11 @@ export const ItemDetail = ({producto}) => {
     setCant(cant)
     setTimeout(()=>{
       setInputType('input')
-    }, 1500)  
+    }, 1500)
+    addToCart({ ...producto, cantidad: cant}) 
   }
+
+  console.log(cart)
 
 
   const [categoria, setCategoria] = useState(undefined)
