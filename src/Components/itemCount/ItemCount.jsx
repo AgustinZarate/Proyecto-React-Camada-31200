@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { ondAddActive } from '../../helpers/onAddActive';
 import { Image } from 'react-bootstrap';
 import './itemCount.css';
+import { useCartContext } from "../../context/CartContext"
 
 export const ItemCount = ({producto, OnAdd}) => {
-
+  const {count, setCount} = useCartContext()
     
-      const [count, setCount] = useState(1);
+
 
       function capCount(){
         OnAdd(count);

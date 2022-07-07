@@ -3,9 +3,12 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavItem, Container, NavDropdown } f
 import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../cartWidget/CartWidget';
 import './NavBar.css'
+import { useCartContext } from "../../context/CartContext"
 
 
 const NavBar = () => {
+    const {cart, totalCart} = useCartContext()
+
     return (
 <>
     <Navbar bg="light" expand="lg">
@@ -32,7 +35,14 @@ const NavBar = () => {
             </Navbar.Collapse>
         </Container>
         <Link to='/cart'>
-                <CartWidget />
+                <CartWidget >
+
+                    {
+                        cart.length > 0 ?
+                        <span>{totalCart()}</span>
+                        : ""
+                    }
+                </CartWidget>
         </Link>
     </Navbar>
 </>

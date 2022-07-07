@@ -1,23 +1,25 @@
 import React from 'react'
+import ProductCart from '../ProductCart/ProductCart'
 import { useCartContext } from "../../context/CartContext"
+import { Row } from 'react-bootstrap';
+
+
 
 function Cart() {
-  const {cart, emptyCart} = useCartContext()
+
+  const {cart} = useCartContext()
 
   console.log(cart)
 
   return (
     <>
-    <ul>
       {
-        cart.map(producto =>
-          <li key={producto.id}>
-            nombre: {producto.nombre} <br />
-            cantidad: {producto.cantidad}
-          </li>)
+        cart.length > 0 ?
+        <Row>
+          <ProductCart />
+        </Row>
+      : <p>El carrito esta vacio</p>
       }
-    </ul>
-    <button onClick={emptyCart}>Vaciar Carrito</button>
     </>
   )
 }

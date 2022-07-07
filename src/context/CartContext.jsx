@@ -8,23 +8,43 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
 
+    const [count, setCount] = useState(1); //ItemCount
+
     function addToCart(producto) {
-        setCart([
-            ...cart,
-            producto])
-    }
+        if(cart.some(e => e.id === producto.id)){
+/*             const prod = cart.find(e => e.id === producto.id)
+            producto.cantidad = producto.cantidad + count
+            setCart([
+                ...cart,
+                producto])
+             */
+            console.log("Se Repite un ID")
+        }else{
+            setCart([
+                ...cart,
+                producto])
+            }
+        }
+
     function emptyCart(){
         setCart([])
-    } 
-    
+    }
+
+    function deleteProdCart(id) {
+        const productos = cart.filter((producto)=> producto.id != id)
+        setCart(productos)
+    }
+
+    function totalPrice (){
+        return cart.reduce((acum, producto)=>acum + producto.cantidad * producto.precio, 0)
+    }
+
+    function totalCart ()
+    {return cart.reduce((acum, producto)=>acum + producto.cantidad, 0)
+    }
+
     return(
-        <CartContext.Provider
-        value={{
-            cart,
-            addToCart,
-            emptyCart
-        }}
-        >
+        <CartContext.Provider value={ {count, setCount, cart, addToCart, emptyCart, deleteProdCart, totalPrice, totalCart} } >
             {children}
         </CartContext.Provider>
     )
