@@ -8,8 +8,8 @@ const ProductCart = () => {
     <>
             {
               cart.map(producto =>
-        <Col md={4}>
-                <div className='card-cart' key={producto.id}>
+        <Col key={producto.id} md={4}>
+                <div className='card-cart' >
                 nombre: {producto.nombre} <br />
                 cantidad: {producto.cantidad} <br />
                 <Image className='w-25' src={`/${producto.img}`} alt={`portada ${producto.nombre}`}/> <br />

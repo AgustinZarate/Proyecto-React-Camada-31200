@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ItemDetail } from '../Components/itemDetail/ItemDetail';
 import Spinner from '../Components/spiner/Spinner';
 import { pedirDatos } from '../helpers/pedirDatos';
+import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where} from 'firebase/firestore'
 
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);
@@ -10,15 +11,18 @@ export const ItemDetailContainer = () => {
   
 
   const {itemId} = useParams()
+  console.log(`DetailContainer itemId= ${itemId}`)
 
   let condition = true;
 
   useEffect(() => {
-    /* EJECUTAR UNA PROMESA PARA SOLICITAR DATOS A API */
-    pedirDatos(condition)
-      .then((res) => {setProducto(res.find((prod)=> prod.id === Number(itemId)));})               /* FUNCIONES QUE CAPTURAN LA RESPUESTA */
-      .catch((error)=> alert(error))                      /* SI ES EXITOSA .then. A partir de eso se utiliza el Hook de estado para poder mapear los datos obtenidos */
-      .finally(()=>setLoading(false))                     /* SI ES FALLA .catch */
+    const db = getFirestore()
+      const queryProduct = doc(db, 'productos', itemId)
+      getDoc(queryProduct)
+      .then(resp => setProducto({Id: resp.id, ...resp.data()}))
+/*       .then((res) => {setProducto(res.find((prod)=> prod.id === Number(itemId)));})*/ 
+      .catch((error)=> alert(error))                     
+      .finally(()=>setLoading(false))                     
   }, [itemId]);
 
   return (
