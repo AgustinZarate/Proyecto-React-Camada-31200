@@ -18,7 +18,17 @@ const Item = ({producto, clase}) => {
                   View More
                 </Link>
               </div>
-              <Image className='img-product' src={`/${producto.img}`} alt={`portada ${producto.nombre}`}/>
+              <div className='image-content'>
+                <Image className='img-product' src={`/${producto.img}`} alt={`portada ${producto.nombre}`}/>
+                {producto.descuento ?
+                  <Image className='descuento' src="../img/Oferta-Especial.png"/>
+                  : ''
+                }
+                {producto.recomendado ?
+                  <Image className='recomendado' src="../img/recomendado.png"/>
+                  : ''
+                }
+              </div>
           </Card>
         </Col>
     </>

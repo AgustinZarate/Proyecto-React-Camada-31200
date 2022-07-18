@@ -11,19 +11,23 @@ export const CartContextProvider = ({children}) => {
     const [count, setCount] = useState(1); //ItemCount
 
     function addToCart(producto) {
-        if(cart.some(e => e.id === producto.id)){
-/*             const prod = cart.find(e => e.id === producto.id)
+/*         if(cart.some(e => e.id === producto.id)){
+            const prod = cart.find(e => e.id === producto.id)
             producto.cantidad = producto.cantidad + count
             setCart([
                 ...cart,
                 producto])
-             */
+            
             console.log("Se Repite un ID")
         }else{
             setCart([
                 ...cart,
                 producto])
             }
+        } */
+        setCart([
+            ...cart,
+            producto])
         }
 
     function emptyCart(){
@@ -31,9 +35,11 @@ export const CartContextProvider = ({children}) => {
     }
 
     function deleteProdCart(id) {
-        const productos = cart.filter((producto)=> producto.id != id)
-        setCart(productos)
+        const items = cart.filter((i)=> i.producto.id !== id)
+        setCart(items)
+        return
     }
+    
 
     function totalPrice (){
         return cart.reduce((acum, producto)=>acum + producto.cantidad * producto.precio, 0)

@@ -9,21 +9,7 @@ import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, 
 
 function ItemListContainer({}) {
   const [listaProductos, setListaProductos] = useState([]);
-  /* Linea nueva */ const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
-
-const [bool, setBool] = useState(true)
-
-
-
-    useEffect( ()=> {
-      const db = getFirestore()
-      const queryProduct = doc(db, 'productos', "3fp1iKMirywE3HVzstax")
-      getDoc(queryProduct)
-      .then(resp => setProductos({Id: resp.id, ...resp.data()}))
-    }, [bool])
-
-    console.log(productos)
 
 
   const {catId} = useParams()

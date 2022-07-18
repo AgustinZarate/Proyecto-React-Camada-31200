@@ -11,11 +11,11 @@ export const ItemDetailContainer = () => {
   
 
   const {itemId} = useParams()
-  console.log(`DetailContainer itemId= ${itemId}`)
 
   let condition = true;
 
   useEffect(() => {
+    //pedir un solo producto desde Firebase
     const db = getFirestore()
       const queryProduct = doc(db, 'productos', itemId)
       getDoc(queryProduct)
