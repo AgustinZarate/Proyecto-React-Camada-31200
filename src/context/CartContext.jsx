@@ -12,6 +12,7 @@ export const CartContextProvider = ({children}) => {
 
     const [count, setCount] = useState(1); //ItemCount
     console.log(`cantidad por afuera ${count}`)
+    
     const isInCart = (id) => {
         return cart.some((x) => x.Id === id)
     }
@@ -30,7 +31,7 @@ export const CartContextProvider = ({children}) => {
              console.log(nuevoArray)
              console.log(`la cantidad es seleccionada X SEGUNDA VEZ ES ${cant}`)
              console.log(`la cantidad actual es ${nuevoArray[indexProduct].cantidad}`)
-            nuevoArray[indexProduct].cantidad += cant
+            nuevoArray[indexProduct].cantidad += producto.cantidad
             console.log(nuevoArray[indexProduct].cantidad)
             setCart(nuevoArray)
         }else{

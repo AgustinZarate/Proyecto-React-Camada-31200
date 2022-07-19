@@ -14,9 +14,9 @@ export const ItemDetail = ({producto}) => {
   const OnAdd =(cant)=>{
     console.log(cant)
     setCant(cant)
-/*     setTimeout(()=>{ */
+    setTimeout(()=>{
       setInputType('input')
-/*     }, 1500) */
+    }, 1500)
     addToCart({ ...producto, cantidad: cant}) 
   }
 

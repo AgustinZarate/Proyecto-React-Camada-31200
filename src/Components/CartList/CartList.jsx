@@ -55,7 +55,9 @@ const CartList = ({}) => {
                     
                             )
                         }
-                    </Row> 
+                    </Row>
+                    <p>total: {totalPrice()}</p>
+        <button onClick={emptyCart}>Vaciar Carrito</button> 
                 </Col>
             
         <Col md={6} className='container-form'>
@@ -68,8 +70,7 @@ const CartList = ({}) => {
             <h4 className="orderNumber">Su número de pedido es: {idBuyed}</h4>
           </form>
         </Col>
-        <p>total: {totalPrice()}</p>
-        <button onClick={emptyCart}>Vaciar Carrito</button>
+        
     </>
   )
 }
