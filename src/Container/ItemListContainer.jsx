@@ -31,7 +31,7 @@ function ItemListContainer({}) {
       const db = getFirestore()
       const queryCollection = collection(db, 'productos')
       getDocs(queryCollection)
-      .then(data => setListaProductos(data.docs.map(item => ({id: item.id, ...item.data()}) ) ) )
+      .then(data => setListaProductos(data.docs.map(producto => ({id: producto.id, ...producto.data()}) ) ) )
       .catch((error)=> alert(error))  
       .finally(()=>setLoading(false))
     }

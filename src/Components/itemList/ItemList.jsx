@@ -3,6 +3,7 @@ import { Row } from 'react-bootstrap';
 import Item from '../item/Item';
 
 function ItemList({listaProductos}) {
+  console.log(listaProductos[0].id)
   return (
     <>
     <div>

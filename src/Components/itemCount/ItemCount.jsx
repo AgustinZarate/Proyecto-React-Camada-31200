@@ -4,14 +4,8 @@ import { Image } from 'react-bootstrap';
 import './itemCount.css';
 import { useCartContext } from "../../context/CartContext"
 
-export const ItemCount = ({producto, OnAdd}) => {
+const ItemCount = ({producto, OnAdd}) => {
   const {count, setCount} = useCartContext()
-    
-
-
-      function capCount(){
-        OnAdd(count);
-        }
     
       function sumar() {
         if (count < producto.stock) {
@@ -40,7 +34,7 @@ export const ItemCount = ({producto, OnAdd}) => {
           </div>
           <div>
             {count > 0 
-              ? (<button onClick={capCount} className="onAdd"> 
+              ? (<button onClick={(e)=>{e.stopPropagation(); OnAdd(count)}} className="onAdd"> 
                   <span className='text'> Agregar al carrito </span>
                   <i className="icon">
                   { producto.categoria === "Nintendo" ?
