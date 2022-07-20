@@ -43,7 +43,7 @@
 .card-cart .container-image .cantidad {
     position: absolute;
     background-color: red;
-    padding: 5px 14px;
+    padding: 5px 10px;
     border-radius: 100%;
     color: white;
     background-color: red;
@@ -55,15 +55,6 @@
     margin: 1rem;
 }
 
-.total-price {
-    text-decoration: line-through;
-    color: red;
-}
-.desct-price{
-    font-size: 1.1rem;
-    color: green;
-    font-weight: 500;
-}
 
 .recomendado {
     position: absolute;

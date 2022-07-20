@@ -6,19 +6,16 @@ import CartItem from '../CartItem/CartItem';
 import './CartList.css';
 
 const CartList = ({}) => {
-const {cart, emptyCart, deleteProdCart, totalPrice} = useCartContext()
+const {cart, emptyCart, deleteProdCart, totalPrice, setIdBuyed} = useCartContext()
 console.log(cart[0].Id)
 
 const [name, setName] = useState("");
 const [mail, setMail] = useState("");
-const [cel, setCel] = useState("");
-
-const [idBuyed, setIdBuyed]=useState('')
-
+const [phone, setPhone] = useState("");
 
 function handleClick(){
 let order = {
-buyer: {name, mail, cel},
+buyer: {name, mail, phone},
 items: cart,
 total: totalPrice()
 };
@@ -62,12 +59,8 @@ return (
       <h4>Complete los datos para finalizar su compra</h4>
       <input onChange={(e)=> setName(e.target.value)} type="text" placeholder="Ingrese su nombre" ></input>
       <input onChange={(e)=> setMail(e.target.value)} type="email" placeholder="Ingrese su e-mail"></input>
-      <input onChange={(e)=> setCel(e.target.value)} type="number" placeholder="Ingrese un celular"></input>
+      <input onChange={(e)=> setPhone(e.target.value)} type="number" placeholder="Ingrese un celular"></input>
       <button onClick={()=> handleClick()} className='btn btn-warning fw-bold p-2 m-2'>Terminar Compra</button>
-      {idBuyed === ""
-      ? ""
-      : <h4>Codigo de orden: {idBuyed}</h4>
-      }
     </form>
   </Col>
 

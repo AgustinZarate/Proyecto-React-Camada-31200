@@ -9,7 +9,7 @@ import CartList from '../Components/CartList/CartList';
 
 function CartContainer() {
 
-  const {cart} = useCartContext()
+  const {cart, idBuyed} = useCartContext()
 
   return (
     <>
@@ -19,6 +19,11 @@ function CartContainer() {
           <CartList />
         </Row>
       : <EmptyCart />
+      }
+      {idBuyed === ""
+      ? ""
+      : 
+      <h4>Codigo de orden: {idBuyed}</h4>
       }
       
     </>
