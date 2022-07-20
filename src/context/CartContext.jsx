@@ -17,23 +17,15 @@ export const CartContextProvider = ({children}) => {
         return cart.some((x) => x.Id === id)
     }
 
-    const addToCart = (producto, cant) => {
+    const addToCart = (producto) => {
         
 
         if(isInCart(producto.Id)){
-
-            console.log(`cantidad ${cant}`)
-            const findProduct = cart.find((x) => x.Id === producto.Id)
-            console.log((`El producto que se repite es ${findProduct.nombre}`))
-            const indexProduct = cart.indexOf(findProduct)
-            console.log(`El indice es ${indexProduct}`)
-             const nuevoArray = [...cart]
-             console.log(nuevoArray)
-             console.log(`la cantidad es seleccionada X SEGUNDA VEZ ES ${cant}`)
-             console.log(`la cantidad actual es ${nuevoArray[indexProduct].cantidad}`)
-            nuevoArray[indexProduct].cantidad += producto.cantidad
-            console.log(nuevoArray[indexProduct].cantidad)
-            setCart(nuevoArray)
+            const producto = cart.find((x) => x.Id === producto.Id)
+            const iProducto = cart.indexOf(producto)
+             const cart = [...cart]
+             cart[iProducto].cantidad += producto.cantidad
+            setCart(cart)
         }else{
             setCart([...cart, producto])
            
