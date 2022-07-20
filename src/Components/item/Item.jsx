@@ -25,7 +25,7 @@ const Item = ({producto, clase}) => {
                   : ''
                 }
                 {producto.recomendado ?
-                  <Image className='recomendado' src="../img/recomendado.png" />
+                  <Image className='recomendado' loading='lazy' src="https://i.ibb.co/Lnth69N/recomendado.png" />
                   : ''
                 }
               </div>
