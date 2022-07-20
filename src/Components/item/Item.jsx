@@ -21,7 +21,7 @@ const Item = ({producto, clase}) => {
               <div className='image-content'>
                 <Image className='img-product' src={`/${producto.img}`} alt={`portada ${producto.nombre}`}/>
                 {producto.descuento ?
-                  <Image className='descuento' src="../img/Oferta-Especial.png"/>
+                  <Image className='descuento' src="../img/oferta-especial.png"/>
                   : ''
                 }
                 {producto.recomendado ?
