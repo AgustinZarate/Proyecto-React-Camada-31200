@@ -7,12 +7,12 @@ const InputCount= ()=> {
         <>
         <Link to='/cart' >
             <button 
-                className="btn btn-outline-primary" 
+                className="btn btn-primary" 
             >Ir al Cart</button>
         </Link>
         <Link to='/' >
             <button 
-                className="btn btn-outline-primary"  
+                className="btn btn-primary"  
             >Seguir comprando</button>
         </Link>
         </>
