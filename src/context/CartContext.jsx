@@ -10,29 +10,19 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({children}) => {
     const [idBuyed, setIdBuyed]=useState('')
     const [cart, setCart] = useState([])
+    const [count, setCount] = useState(1);
 
-    const [count, setCount] = useState(1); //ItemCount
-    console.log(`cantidad por afuera ${count}`)
-    
-    const isInCart = (id) => {
-        return cart.some((x) => x.Id === id)
-    }
-
-    const addToCart = (producto) => {
-        
-
-        if(isInCart(producto.Id)){
-            const producto = cart.find((x) => x.Id === producto.Id)
-            const iProducto = cart.indexOf(producto)
-             const cart = [...cart]
-             cart[iProducto].cantidad += producto.cantidad
+    function addToCart (producto) {
+        if(cart.find((x) => x.Id === producto.Id)){
+            const oldProducto = cart.find((x) => x.Id === producto.Id)
+            const iOldProducto = cart.indexOf(oldProducto)
+            const newCart = [...cart]
+            newCart[iOldProducto].cantidad += producto.cantidad
             setCart(cart)
         }else{
             setCart([...cart, producto])
-           
         }
     }
-
 
     function emptyCart(){
         setCart([])

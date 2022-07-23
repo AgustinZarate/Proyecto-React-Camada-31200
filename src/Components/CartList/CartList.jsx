@@ -7,8 +7,6 @@ import './CartList.css';
 
 const CartList = ({}) => {
 const {cart, emptyCart, deleteProdCart, totalPrice, setIdBuyed} = useCartContext()
-console.log(cart[0].Id)
-
 const [name, setName] = useState("");
 const [mail, setMail] = useState("");
 const [phone, setPhone] = useState("");
@@ -26,12 +24,6 @@ setIdBuyed(id);
 
 emptyCart()
 }
-
-
-
-
-console.log(cart)
-
 
 const db = getFirestore()
 const ordersCollection = collection(db, 'orders');
