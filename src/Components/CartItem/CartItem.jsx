@@ -15,7 +15,7 @@ return (
             {`x${producto.cantidad}` }
         </div>
         {producto.recomendado ?
-                      <Image className='recomendado' src="../img/recomendado.png"/>
+                      <Image className='recomendado' src="https://i.ibb.co/Lnth69N/recomendado.png"/>
                       : ''
                     }
     </div>

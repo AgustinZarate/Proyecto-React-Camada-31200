@@ -1,3 +1,7 @@
+:root {
+    --content: 
+}
+
 .item-detail {
     margin: 0;
     padding: 0;
@@ -46,7 +50,7 @@
 /* Lograr que el content sea pasado desde el componente */
 .container-detail .container-img-detail::before {
     z-index: 0;
-    content: 'Ghost Of Tsushima';
+/*     content: 'Ghost Of Tsushima'; */
     position: absolute;
     top: 20px;
     left: 20px;
