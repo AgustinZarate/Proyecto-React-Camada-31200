@@ -60,7 +60,7 @@ export const ItemDetail = ({producto}) => {
               <h3>${producto.precio}</h3>
               <h6>Stock Actual: {producto.stock}</h6>
 
-            {inputType === 'button' ?
+            {inputType === 'button' ? 
               <ItemCount producto={producto} OnAdd={OnAdd} />
               :
               <InputCount />
