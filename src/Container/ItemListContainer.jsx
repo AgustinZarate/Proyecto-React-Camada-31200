@@ -10,10 +10,7 @@ import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, 
 function ItemListContainer({}) {
   const [listaProductos, setListaProductos] = useState([]);
   const [loading, setLoading] = useState(true)
-
-
   const {catId} = useParams()
-  console.log(catId)
 
   useEffect(() => {
         //Traer todos los productos de la misma categoria

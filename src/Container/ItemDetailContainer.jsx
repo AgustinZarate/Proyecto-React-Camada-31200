@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from '../Components/itemDetail/ItemDetail';
-import Spinner from '../Components/spiner/Spinner';
 import { doc, getDoc, getFirestore} from 'firebase/firestore'
+import Spinner from '../Components/spiner/Spinner';
 
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);

@@ -7,22 +7,16 @@ import { CartContext, useCartContext } from "../../context/CartContext"
 
 export const ItemDetail = ({producto}) => {
   const {cart, addToCart} = useCartContext()
-  
   const [inputType, setInputType] = useState('button')
   const [ cant, setCant] = useState(0)
 
   const OnAdd =(cant)=>{
-    console.log(cant)
     setCant(cant)
     setTimeout(()=>{
       setInputType('input')
     }, 1500)
     addToCart({ ...producto, cantidad: cant}) 
   }
-
-  console.log(cart)
-
-
   const [categoria, setCategoria] = useState(undefined)
 
   useEffect(()=>{
@@ -59,15 +53,11 @@ export const ItemDetail = ({producto}) => {
             <p>{producto.descripsion}</p>
               <h3>${producto.precio}</h3>
               <h6>Stock Actual: {producto.stock}</h6>
-
             {inputType === 'button' ? 
               <ItemCount producto={producto} OnAdd={OnAdd} />
               :
               <InputCount />
             }
-
-
-
           </div>
         </div>
     </div>
